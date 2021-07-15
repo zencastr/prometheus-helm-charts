@@ -625,40 +625,31 @@ grafana:
   ##
   defaultDashboardsEnabled: true
 
-  adminPassword: prom-operator
+  adminPassword: 20de62fe7ca1
 
   ingress:
-    ## If true, Grafana Ingress will be created
-    ##
-    enabled: false
+    enabled: true
+    ingressClassName: nginx
 
-    ## Annotations for Grafana Ingress
-    ##
-    annotations: {}
-      # kubernetes.io/ingress.class: nginx
-      # kubernetes.io/tls-acme: "true"
+    annotations: 
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      cert-manager.io/common-name: grafana.ops.gcp.zencastr.com
 
-    ## Labels to be added to the Ingress
-    ##
     labels: {}
 
-    ## Hostnames.
-    ## Must be provided if Ingress is enable.
-    ##
-    # hosts:
-    #   - grafana.domain.com
-    hosts: []
+    hosts:
+      - grafana.ops.gcp.zencastr.com
 
-    ## Path for grafana ingress
-    path: /
+    paths:
+      - /
 
-    ## TLS configuration for grafana Ingress
-    ## Secret must be manually created in the namespace
-    ##
-    tls: []
-    # - secretName: grafana-general-tls
-    #   hosts:
-    #   - grafana.example.com
+    pathType: ImplementationSpecific
+
+    tls:
+    - secretName: grafana-tls
+      hosts:
+      - grafana.ops.gcp.zencastr.com 
 
   sidecar:
     dashboards:
