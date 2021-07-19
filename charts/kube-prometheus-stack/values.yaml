@@ -956,7 +956,7 @@ kubeControllerManager:
 ## Component scraping coreDns. Use either this or kubeDns
 ##
 coreDns:
-  enabled: true
+  enabled: false
   service:
     port: 9153
     targetPort: 9153
@@ -991,7 +991,7 @@ coreDns:
 ## Component scraping kubeDns. Use either this or coreDns
 ##
 kubeDns:
-  enabled: false
+  enabled: true
   service:
     dnsmasq:
       port: 10054
@@ -2329,7 +2329,9 @@ prometheus:
     ## This is experimental and may change significantly without backward compatibility in any release.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#thanosspec
     ##
-    thanos: {}
+    thanos:
+      baseImage: quay.io/thanos/thanos
+      version: v0.21.1
 
     ## Containers allows injecting additional containers. This is meant to allow adding an authentication proxy to a Prometheus pod.
     ##  if using proxy extraContainer  update targetPort with proxy container port
