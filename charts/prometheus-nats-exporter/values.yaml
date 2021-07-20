@@ -17,10 +17,7 @@ service:
 
 serviceMonitor:
   enabled: true
-  additionalLabels: {}
   namespace: monitoring
-  interval:
-  scrapeTimeout:
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
