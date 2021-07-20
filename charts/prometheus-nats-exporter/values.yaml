@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: natsio/prometheus-nats-exporter
-  tag: 0.7.0
+  tag: 0.8.0
   pullPolicy: IfNotPresent
 
 service:
@@ -16,9 +16,9 @@ service:
   targetPort: 7777
 
 serviceMonitor:
-  enabled: false
+  enabled: true
   additionalLabels: {}
-  namespace:
+  namespace: nats
   interval:
   scrapeTimeout:
 
@@ -37,8 +37,8 @@ resources: {}
 config:
   nats:
     # See https://github.com/helm/charts/blob/master/stable/nats/templates/monitoring-svc.yaml
-    service: nats-nats-monitoring
-    namespace: default
+    service: nats
+    namespace: nats
     port: 8222
   metrics:
     varz: true
