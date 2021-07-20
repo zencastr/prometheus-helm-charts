@@ -1589,7 +1589,7 @@ prometheus:
     storageSpec:
      volumeClaimTemplate:
        spec:
-         storageClassName: premium-rwo
+         storageClassName: managed-premium
          accessModes: ["ReadWriteOnce"]
          resources:
            requests:
