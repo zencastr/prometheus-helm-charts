@@ -2327,6 +2327,9 @@ prometheus:
     thanos:
       baseImage: quay.io/thanos/thanos
       version: v0.21.1
+      objectStorageConfig:
+        name: 'thanos-objectstorage'
+        key: 'thanos.yaml'
 
     ## Containers allows injecting additional containers. This is meant to allow adding an authentication proxy to a Prometheus pod.
     ##  if using proxy extraContainer  update targetPort with proxy container port
