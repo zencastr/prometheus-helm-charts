@@ -36,7 +36,7 @@ config:
     # See https://github.com/helm/charts/blob/master/stable/nats/templates/monitoring-svc.yaml
     service: nats-js
     namespace: nats
-    port: 7777
+    port: 8222
   metrics:
     varz: true
     channelz: true
