@@ -31,7 +31,7 @@ mongodb:
 # Name of an externally managed secret (in the same namespace) containing the connection uri as key `mongodb-uri`.
 # If this is provided, the value mongodb.uri is ignored.
 existingSecret:
-  name: ""
+  name: "mongodb-uri"
   key: "mongodb-uri"
 
 nameOverride: ""
@@ -91,7 +91,8 @@ serviceMonitor:
   interval: 30s
   scrapeTimeout: 10s
   namespace:
-  additionalLabels: {}
+  additionalLabels:
+    release: ml-ops-prometheus-operator
   targetLabels: []
   metricRelabelings: []
 
