@@ -629,7 +629,7 @@ grafana:
   adminPassword: 20de62fe7ca1
 
   ingress:
-    enabled: true
+    enabled: false
     ingressClassName: nginx
 
     annotations: 
@@ -643,7 +643,6 @@ grafana:
 
     paths:
       - /
-      - /metrics
 
     pathType: ImplementationSpecific
 
