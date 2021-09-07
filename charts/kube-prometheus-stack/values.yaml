@@ -630,6 +630,7 @@ grafana:
 
   plugins:
     - redis-datasource
+    - redis-app
 
   ingress:
     enabled: false
