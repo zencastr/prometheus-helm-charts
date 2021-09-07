@@ -628,6 +628,9 @@ grafana:
 
   adminPassword: 20de62fe7ca1
 
+  plugins:
+    - redis-datasource
+
   ingress:
     enabled: false
     ingressClassName: nginx
