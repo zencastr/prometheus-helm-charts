@@ -438,7 +438,7 @@ alertmanager:
     #     role: example-config
     alertmanagerConfigSelector:
       matchLabels:
-        enabled: true
+        enabled: "true"
 
     ## Namespaces to be selected for AlertmanagerConfig discovery. If nil, only check own namespace.
     ##
@@ -455,7 +455,7 @@ alertmanager:
 
     alertmanagerConfigNamespaceSelector:
       matchLabels:
-        monitored: true
+        monitored: "true"
 
     ## Define Log Format
     # Use logfmt (default) or json logging
